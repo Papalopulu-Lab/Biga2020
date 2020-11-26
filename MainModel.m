@@ -24,13 +24,13 @@ elseif GraphAppearance==0
 end
 
 %% Define grid size
-rows=8;         %Number of rows of cells in hexagonal grid
-cols=4;         %Number of columns of cells in hexagonal grid
+rows=26;         %Number of rows of cells in hexagonal grid
+cols=10;         %Number of columns of cells in hexagonal grid
 cells=rows*cols; %Total number of cells
 
 %% Define simulation time and step size
 t0=0;            % Start time
-tf_hours=80;    % Final time (hours)
+tf_hours=100;    % Final time (hours)
 tf=tf_hours*60;  % Final time (min)
 
 Stochastic=1;              %1 = stochastic, 0 = deterministic  (deterministic currently has a bug) 
@@ -51,12 +51,12 @@ TurnOffAutorepression=0;   %Reduce model to just lateral inhibition without auto
 VertProtrusions=0;         %Increases number of signalling neighbours in the vertical direction 
 
 %Differentiation selection and parameters
-CrudeDiff           = 1;   %Cells will be marked...
+CrudeDiff           = 0;   %Cells will be marked...
 AvM                 = 0;   %Absolute vs moving mean threshold (0=Absolute thresh, 1=Moving mean thresh)
 wl_mins             = 100; %Window length in mins to take the moving mean from
 wl=wl_mins/dt;             %Window length converted to number of vector elements
 Replace             = 0;   %Replace differentiating cells with mean population protein
-DiffTime_hours=50;         %Time at which differention can start to occur (hours)
+DiffTime_hours      = 50;  %Time at which differention can start to occur (hours)
 DiffTime=DiffTime_hours*60/dt;
 S=0.01;                    % Rate of differentiation. Nominal value of 0.01
 
@@ -69,11 +69,11 @@ Ts=5; % Time (in mins) between each swapping event (nominal Ts=5)
 %% Select simulation outputs
 %Various frequency analysis options
 TemporalFourier     = 1;   %Gives average Fourier period of the cell population
-TemporalWavelet     = 1;   %Preliminary implementation of wavelet to examine whether Hes5 switches between periodic and noisy
-SpatialFourier      = 1;   %Detect significant spatial periodic expression of Hes5
+TemporalWavelet     = 0;   %Preliminary implementation of wavelet to examine whether Hes5 switches between periodic and noisy
+SpatialFourier      = 0;   %Detect significant spatial periodic expression of Hes5
 
 %Visualising Hes5 protein levels
-AnimateGrid         = 0;   
+AnimateGrid         = 1;   
 AnimationSpeed      = 1;   %Multiplier for speed of animation
 AnimationSubplots   = 0;   %0=Just Hes levels plot, 1=show swapping, 2=show crude differentiation
 ShowRandomCells     = 0;   %Time traces of individual cells
