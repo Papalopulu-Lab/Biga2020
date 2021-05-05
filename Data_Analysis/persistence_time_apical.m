@@ -20,4 +20,4 @@ xlabel('Time');ylabel('Counts');
 subplot(1,3,3),hist(TH(:)./TL(:)),title('Ratio high vs low');
 xlabel('Time');ylabel('Counts');
 suptitle('Apical');
-%% cluster all apical 
+
